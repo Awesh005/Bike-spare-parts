@@ -1,0 +1,296 @@
+/* ── ShopPage.css ─────────────────────────────────────────── */
+
+/* Hero */
+.shop-hero {
+  background:
+    linear-gradient(rgba(5,5,5,.85), rgba(5,5,5,.85)),
+    url('/images/bikeee1.jpeg') center/cover no-repeat;
+  padding: 4rem 0;
+  text-align: center;
+  border-bottom: 1px solid var(--clr-border);
+}
+
+.shop-hero__title {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 900;
+  color: #fff;
+  text-transform: uppercase;
+  margin-bottom: .5rem;
+}
+
+.shop-hero__sub {
+  color: var(--clr-text-muted);
+  font-size: 1rem;
+}
+
+/* Layout */
+.shop-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 2rem;
+  padding-top: 2.5rem;
+  padding-bottom: 4rem;
+  align-items: start;
+}
+
+/* Sidebar */
+.shop-sidebar {
+  position: sticky;
+  top: 120px;
+}
+
+.shop-sidebar__inner {
+  background: var(--clr-bg-card);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.shop-sidebar__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.25rem .75rem;
+  display: none;
+}
+
+.shop-sidebar__header h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+/* Filter Groups */
+.filter-group {
+  padding: 1.25rem;
+  border-bottom: 1px solid var(--clr-border);
+}
+
+.filter-group:last-child { border-bottom: none; }
+
+.filter-group__title {
+  font-size: .72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--clr-text-dim);
+  margin-bottom: 1rem;
+}
+
+/* Category List */
+.filter-cat-list { display: flex; flex-direction: column; gap: .25rem; }
+
+.filter-cat-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: .6rem .75rem;
+  border-radius: var(--radius-sm);
+  color: var(--clr-text-muted);
+  font-size: .875rem;
+  font-weight: 500;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: all .2s;
+}
+
+.filter-cat-btn:hover {
+  background: var(--clr-bg-elevated);
+  color: var(--clr-text);
+}
+
+.filter-cat-btn--active {
+  background: rgba(255,32,32,.1);
+  color: var(--clr-primary);
+  font-weight: 700;
+}
+
+.filter-cat-count {
+  color: var(--clr-text-dim);
+  font-size: .78rem;
+  background: var(--clr-bg-elevated);
+  padding: .1rem .4rem;
+  border-radius: var(--radius-full);
+}
+
+/* Price Range */
+.price-range-input {
+  width: 100%;
+  accent-color: var(--clr-primary);
+  height: 4px;
+  background: var(--clr-border-light);
+  outline: none;
+  cursor: pointer;
+  margin: .5rem 0;
+  border-radius: var(--radius-full);
+}
+
+.price-range-labels {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: .78rem;
+  color: var(--clr-text-dim);
+  margin-top: .4rem;
+}
+
+.price-range-current {
+  color: var(--clr-primary);
+  font-weight: 700;
+  font-size: .85rem;
+}
+
+/* Main */
+.shop-main { min-width: 0; }
+
+/* Toolbar */
+.shop-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.shop-toolbar__left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.shop-filter-toggle { display: none; }
+
+.shop-toolbar__count {
+  color: var(--clr-text-muted);
+  font-size: .875rem;
+}
+
+.shop-toolbar__right {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+}
+
+/* Search */
+.shop-search {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.shop-search__icon {
+  position: absolute;
+  left: .75rem;
+  color: var(--clr-text-dim);
+  font-size: .95rem;
+  pointer-events: none;
+}
+
+.shop-search__input {
+  background: var(--clr-bg-card);
+  border: 1px solid var(--clr-border-light);
+  color: var(--clr-text);
+  padding: .6rem .9rem .6rem 2.25rem;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-primary);
+  font-size: .875rem;
+  width: 220px;
+  transition: border-color .2s;
+}
+
+.shop-search__input:focus {
+  outline: none;
+  border-color: var(--clr-primary);
+}
+
+/* Sort */
+.sort-select-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.sort-select {
+  appearance: none;
+  background: var(--clr-bg-card);
+  border: 1px solid var(--clr-border-light);
+  color: var(--clr-text);
+  padding: .6rem 2rem .6rem .9rem;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-primary);
+  font-size: .875rem;
+  cursor: pointer;
+  transition: border-color .2s;
+}
+
+.sort-select:focus { outline: none; border-color: var(--clr-primary); }
+
+.sort-select__icon {
+  position: absolute;
+  right: .6rem;
+  color: var(--clr-text-dim);
+  pointer-events: none;
+  font-size: .9rem;
+}
+
+/* Grid */
+.shop-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+/* Empty State */
+.shop-empty {
+  text-align: center;
+  padding: 5rem 2rem;
+  color: var(--clr-text-muted);
+  grid-column: span 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.shop-empty span { font-size: 3rem; }
+.shop-empty p    { font-size: 1rem; }
+
+/* Mobile Overlay */
+.shop-sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.7);
+  z-index: 998;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .shop-layout    { grid-template-columns: 1fr; }
+  .shop-sidebar   {
+    position: fixed;
+    top: 0; left: 0; bottom: 0;
+    width: 300px;
+    z-index: 999;
+    transform: translateX(-100%);
+    transition: transform .35s var(--ease);
+    overflow-y: auto;
+    background: var(--clr-bg-card);
+  }
+  .shop-sidebar--open { transform: translateX(0); }
+  .shop-sidebar__header { display: flex; }
+  .shop-sidebar-overlay { display: block; }
+  .shop-filter-toggle { display: flex; }
+  .shop-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 576px) {
+  .shop-grid { grid-template-columns: 1fr; }
+  .shop-toolbar { flex-direction: column; align-items: flex-start; }
+  .shop-toolbar__right { width: 100%; flex-wrap: wrap; }
+  .shop-search__input { width: 100%; }
+}

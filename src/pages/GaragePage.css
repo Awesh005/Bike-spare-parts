@@ -1,0 +1,126 @@
+/* Garage Page */
+.garage-page { padding-bottom: 5rem; }
+
+.garage-hero {
+  background: linear-gradient(rgba(5,5,5,.85),rgba(5,5,5,.8)), url('/images/bike service.jpeg') center/cover no-repeat;
+  padding: 6rem 0;
+  border-bottom: 1px solid var(--clr-border);
+}
+
+.garage-hero__content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 600px;
+}
+
+.garage-hero__content h1 {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 900;
+  color: #fff;
+  line-height: 1;
+}
+
+.garage-hero__content p { color: var(--clr-text-muted); font-size: 1.05rem; }
+
+/* Services Grid */
+.garage-services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.garage-service-card {
+  background: var(--clr-bg-card);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  padding: 1.75rem 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  transition: all var(--trans);
+}
+
+.garage-service-card:hover {
+  border-color: var(--clr-primary);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-red);
+}
+
+.garage-service-card__icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,32,32,.08);
+  border-radius: 50%;
+  border: 1.5px solid rgba(255,32,32,.2);
+}
+
+.garage-service-card h4 { color: #fff; font-weight: 700; margin-bottom: .3rem; }
+.garage-service-card p  { color: var(--clr-text-muted); font-size: .875rem; margin-bottom: .5rem; }
+.garage-service-card__price { color: var(--clr-primary); font-weight: 700; font-size: .9rem; }
+
+/* Booking */
+.garage-booking { background: #070707; }
+
+.garage-booking__wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+  background: var(--clr-bg-card);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  padding: 3rem;
+}
+
+.garage-booking__left h2 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.75rem;
+  font-weight: 900;
+  margin-bottom: .75rem;
+}
+
+.garage-booking__left p { color: var(--clr-text-muted); font-size: .95rem; margin-bottom: 1.5rem; }
+
+.garage-booking__perks {
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+}
+
+.garage-booking__perks li {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  color: var(--clr-text-muted);
+  font-size: .9rem;
+}
+
+.garage-booking__form { display: flex; flex-direction: column; gap: 1.25rem; }
+
+.text-red { color: var(--clr-primary); }
+
+.contact-success {
+  background: rgba(34,197,94,.1);
+  border: 1px solid #22c55e;
+  color: #22c55e;
+  padding: .875rem 1rem;
+  border-radius: var(--radius-sm);
+  font-size: .9rem;
+}
+
+@media (max-width: 992px) {
+  .garage-services-grid { grid-template-columns: repeat(2, 1fr); }
+  .garage-booking__wrap { grid-template-columns: 1fr; gap: 2rem; }
+}
+
+@media (max-width: 576px) {
+  .garage-services-grid { grid-template-columns: 1fr; }
+  .garage-booking__wrap { padding: 1.5rem; }
+}

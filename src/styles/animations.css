@@ -1,0 +1,138 @@
+/* ============================================================
+   MOTO HUB — Keyframe Animations & Motion Utilities
+   ============================================================ */
+
+/* ── Fade & Slide ────────────────────────────────────────── */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-30px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(30px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+/* ── Scale ───────────────────────────────────────────────── */
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(.85); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pop {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.25); }
+  100% { transform: scale(1); }
+}
+
+/* ── Pulse / Glow ────────────────────────────────────────── */
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255,32,32,.5); }
+  50%       { box-shadow: 0 0 0 10px rgba(255,32,32,0); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { text-shadow: 0 0 10px rgba(255,32,32,0); }
+  50%       { text-shadow: 0 0 20px rgba(255,32,32,.6); }
+}
+
+/* ── Spin ────────────────────────────────────────────────── */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ── Shimmer / Skeleton ──────────────────────────────────── */
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
+/* ── Float (hero bike) ───────────────────────────────────── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-18px); }
+}
+
+/* ── Slide marquee (brand logos) ─────────────────────────── */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ── Badge bounce ────────────────────────────────────────── */
+@keyframes badgeBounce {
+  0%   { transform: scale(1) rotate(-10deg); }
+  25%  { transform: scale(1.12) rotate(5deg); }
+  50%  { transform: scale(1) rotate(0deg); }
+  75%  { transform: scale(1.06) rotate(-3deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+/* ── Count-up number ─────────────────────────────────────── */
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Utility Classes ─────────────────────────────────────── */
+.anim-fade-in     { animation: fadeIn      .5s var(--ease) forwards; }
+.anim-fade-up     { animation: fadeInUp    .6s var(--ease) forwards; }
+.anim-fade-left   { animation: fadeInLeft  .6s var(--ease) forwards; }
+.anim-fade-right  { animation: fadeInRight .6s var(--ease) forwards; }
+.anim-scale-in    { animation: scaleIn     .4s var(--ease) forwards; }
+.anim-float       { animation: float 4s ease-in-out infinite; }
+.anim-spin        { animation: spin  1s linear infinite; }
+.anim-pulse       { animation: pulse 2s ease-in-out infinite; }
+.anim-shimmer {
+  background: linear-gradient(90deg, #1a1a1a 25%, #2a2a2a 50%, #1a1a1a 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* ── Delay Helpers ───────────────────────────────────────── */
+.delay-100 { animation-delay: .1s; }
+.delay-200 { animation-delay: .2s; }
+.delay-300 { animation-delay: .3s; }
+.delay-400 { animation-delay: .4s; }
+.delay-500 { animation-delay: .5s; }
+
+/* ── Scroll Reveal (used via IntersectionObserver) ───────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity .6s var(--ease), transform .6s var(--ease);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Skeleton loader */
+.skeleton {
+  background: linear-gradient(90deg, #1a1a1a 25%, #242424 50%, #1a1a1a 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--radius-sm);
+}

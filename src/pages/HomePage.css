@@ -1,0 +1,520 @@
+/* ── HomePage.css ────────────────────────────────────────── */
+
+/* ── Brands Marquee ────────────────────────────────────────── */
+.brands-bar {
+  background: #0d0d0d;
+  border-top: 1px solid var(--clr-border);
+  border-bottom: 1px solid var(--clr-border);
+  padding: 1.5rem 0;
+  overflow: hidden;
+}
+
+.brands-marquee { overflow: hidden; }
+
+.brands-track {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  width: max-content;
+  animation: marquee 25s linear infinite;
+}
+
+.brand-logo {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+  filter: grayscale(1) brightness(.7);
+  transition: filter .3s, transform .3s;
+  flex-shrink: 0;
+}
+
+.brand-logo:hover {
+  filter: grayscale(0) brightness(1);
+  transform: scale(1.1);
+}
+
+/* ── Categories ────────────────────────────────────────────── */
+.homepage__categories {
+  background: var(--clr-bg);
+}
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1.25rem;
+}
+
+.cat-card {
+  background: var(--clr-bg-card);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  padding: 1.75rem 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .75rem;
+  cursor: pointer;
+  transition: all var(--trans);
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+.cat-card.visible,
+.cat-card.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: calc(var(--i) * 0.08s);
+}
+
+.cat-card:hover {
+  border-color: var(--clr-primary);
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-red);
+}
+
+.cat-card__img-wrap {
+  width: 90px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cat-card__img-wrap img {
+  max-height: 80px;
+  object-fit: contain;
+  transition: transform var(--trans);
+}
+
+.cat-card:hover .cat-card__img-wrap img {
+  transform: scale(1.12);
+}
+
+.cat-card__label {
+  color: var(--clr-text);
+  font-size: .85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .4px;
+}
+
+.cat-card__explore {
+  display: flex;
+  align-items: center;
+  gap: .3rem;
+  color: var(--clr-primary);
+  font-size: .8rem;
+  font-weight: 600;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: all var(--trans);
+}
+
+.cat-card:hover .cat-card__explore {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Best Sellers ────────────────────────────────────────────── */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+/* ── Why Choose / Features ───────────────────────────────────── */
+.homepage__why {
+  background: #070707;
+}
+
+.section-title--center {
+  justify-content: center;
+  margin-bottom: 2.5rem;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.feature-card {
+  background: var(--clr-bg-card);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  padding: 1.75rem 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  transition: all var(--trans);
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+.feature-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: calc(var(--i) * 0.12s);
+}
+
+.feature-card:hover {
+  border-color: var(--clr-primary);
+  transform: translateY(-4px);
+}
+
+.feature-card__icon {
+  font-size: 2.2rem;
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  background: rgba(255,32,32,.08);
+  border: 1.5px solid rgba(255,32,32,.25);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  transition: all var(--trans);
+}
+
+.feature-card:hover .feature-card__icon {
+  background: rgba(255,32,32,.15);
+  border-color: var(--clr-primary);
+}
+
+.feature-card__title {
+  color: var(--clr-text);
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: .5rem;
+}
+
+.feature-card__desc {
+  color: var(--clr-text-muted);
+  font-size: .875rem;
+  line-height: 1.65;
+}
+
+/* ── Summer Sale Banner ──────────────────────────────────────── */
+.summer-sale-banner {
+  background:
+    linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
+    url('/images/1st bike.png') center/cover no-repeat;
+  padding: 5rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.summer-sale-banner::before,
+.summer-sale-banner::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 100px;
+  height: 50px;
+  border: 3px solid var(--clr-primary);
+  transform: translateY(-50%);
+  opacity: .6;
+}
+
+.summer-sale-banner::before {
+  left: 60px;
+  border-right: none;
+  border-bottom: none;
+  transform: translateY(-50%) skewX(-30deg);
+}
+
+.summer-sale-banner::after {
+  right: 60px;
+  border-left: none;
+  border-bottom: none;
+  transform: translateY(-50%) skewX(30deg);
+}
+
+.summer-sale-banner__content h2 {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 900;
+  letter-spacing: 3px;
+  color: #fff;
+  margin-bottom: .25rem;
+}
+
+.summer-sale-banner__content h3 {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 2rem;
+}
+
+.sale-cta { padding: .95rem 3rem; font-size: 1rem; }
+
+/* ── New Arrivals ────────────────────────────────────────────── */
+.arrivals-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1.25rem;
+}
+
+.arrival-card {
+  background: var(--clr-bg-card);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: all var(--trans);
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.arrival-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: calc(var(--i) * 0.08s);
+}
+
+.arrival-card:hover {
+  border-color: rgba(255,32,32,.3);
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-red);
+}
+
+.arrival-card__img-wrap {
+  aspect-ratio: 1;
+  overflow: hidden;
+  background: #0d0d0d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrival-card__img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: .75rem;
+  transition: transform var(--trans-slow);
+}
+
+.arrival-card:hover .arrival-card__img-wrap img {
+  transform: scale(1.08);
+}
+
+.arrival-card__name {
+  padding: .75rem .75rem .25rem;
+  font-size: .85rem;
+  font-weight: 600;
+  color: var(--clr-text);
+}
+
+.arrival-card__price {
+  padding: 0 .75rem .75rem;
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--clr-primary);
+}
+
+/* ── KTM Banner ──────────────────────────────────────────────── */
+.ktm-banner {
+  background: linear-gradient(135deg, #0a0a0a 60%, #1a0505 100%);
+  border-top: 1px solid var(--clr-border);
+  border-bottom: 1px solid var(--clr-border);
+  padding: 4rem 0;
+  overflow: hidden;
+}
+
+.ktm-banner__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.ktm-banner__content {
+  flex: 1;
+}
+
+.ktm-banner__content h2 {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 900;
+  color: var(--clr-primary);
+  line-height: .95;
+  margin-bottom: .75rem;
+}
+
+.ktm-banner__content h4 {
+  color: var(--clr-text-muted);
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 1.75rem;
+  letter-spacing: .5px;
+}
+
+.ktm-banner__bike {
+  max-width: 480px;
+  width: 45%;
+  object-fit: contain;
+}
+
+/* ── Testimonials ────────────────────────────────────────────── */
+.homepage__testimonials { background: #070707; }
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.testimonial-card {
+  background: var(--clr-bg-card);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+  transition: all var(--trans);
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.testimonial-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: calc(var(--i) * 0.12s);
+}
+
+.testimonial-card:hover {
+  border-color: rgba(255,32,32,.3);
+  transform: translateY(-4px);
+}
+
+.testimonial-card__avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--clr-primary);
+  flex-shrink: 0;
+}
+
+.testimonial-card__body h4 {
+  color: var(--clr-text);
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: .25rem;
+}
+
+.testimonial-card__body p {
+  color: var(--clr-text-muted);
+  font-size: .875rem;
+  line-height: 1.65;
+  margin-top: .5rem;
+}
+
+/* ── Club Banner ─────────────────────────────────────────────── */
+.club-banner {
+  background: linear-gradient(135deg, #110000, #200000);
+  border: 1px solid rgba(255,32,32,.2);
+  border-radius: var(--radius-lg);
+  margin: 0 var(--container-pad);
+  overflow: hidden;
+}
+
+.club-banner__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 3rem 2rem;
+}
+
+.club-banner__text h2 {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: .4rem;
+}
+
+.club-banner__text p {
+  color: var(--clr-text-muted);
+  font-size: 1rem;
+}
+
+.club-banner__btn { flex-shrink: 0; }
+
+.club-banner__bike {
+  max-width: 260px;
+  object-fit: contain;
+  opacity: .6;
+}
+
+/* ── Newsletter ──────────────────────────────────────────────── */
+.newsletter-box {
+  background: var(--clr-bg-card);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  padding: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.newsletter-box__text h2 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.75rem;
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: .4rem;
+}
+
+.newsletter-box__text p {
+  color: var(--clr-text-muted);
+  font-size: .95rem;
+}
+
+.newsletter-box__form {
+  display: flex;
+  gap: .75rem;
+  flex: 1;
+  max-width: 480px;
+}
+
+.newsletter-box__input { flex: 1; }
+
+/* ── Responsive ──────────────────────────────────────────────── */
+@media (max-width: 1200px) {
+  .categories-grid { grid-template-columns: repeat(3, 1fr); }
+  .arrivals-grid   { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 992px) {
+  .products-grid  { grid-template-columns: repeat(2, 1fr); }
+  .features-grid  { grid-template-columns: repeat(2, 1fr); }
+  .ktm-banner__bike { display: none; }
+}
+
+@media (max-width: 768px) {
+  .categories-grid  { grid-template-columns: repeat(2, 1fr); }
+  .arrivals-grid    { grid-template-columns: repeat(2, 1fr); }
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .club-banner__bike { display: none; }
+  .newsletter-box   { flex-direction: column; }
+  .newsletter-box__form { max-width: 100%; width: 100%; }
+  .summer-sale-banner::before,
+  .summer-sale-banner::after { display: none; }
+}
+
+@media (max-width: 480px) {
+  .categories-grid { grid-template-columns: repeat(2, 1fr); }
+  .features-grid   { grid-template-columns: 1fr; }
+  .products-grid   { grid-template-columns: 1fr; }
+  .club-banner__inner { flex-direction: column; text-align: center; }
+}
